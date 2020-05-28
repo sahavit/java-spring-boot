@@ -38,7 +38,7 @@ public class OrderAPI {
 			
 			Order order = orderService.getOrder(orderId);
 			
-			return new ResponseEntity<Order>(order, HttpStatus.OK);
+			return ResponseEntity.ok(order);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
@@ -52,7 +52,7 @@ public class OrderAPI {
 			
 			List<Order> orders = orderService.getCustomerOrders(custId);
 			
-			return new ResponseEntity<List<Order>>(orders,HttpStatus.OK);
+			return ResponseEntity.ok(orders);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
@@ -66,7 +66,7 @@ public class OrderAPI {
 			
 			List<Order> orders = orderService.getAllOrders();
 			
-			return new ResponseEntity<List<Order>>(orders,HttpStatus.OK);
+			return ResponseEntity.ok(orders);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,environment.getProperty(e.getMessage()));
@@ -82,7 +82,7 @@ public class OrderAPI {
 			
 			String message = "Order added successfully with ID: "+orderId;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));
@@ -98,7 +98,7 @@ public class OrderAPI {
 			
 			String message = "Order deleted successfully with ID: "+id;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));
@@ -114,7 +114,7 @@ public class OrderAPI {
 			
 			String message = "Order added successfully with ID: "+orderId;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
@@ -130,7 +130,7 @@ public class OrderAPI {
 			
 			String message = "Order updated successfully with ID: "+id;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));

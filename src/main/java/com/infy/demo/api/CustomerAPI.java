@@ -36,7 +36,7 @@ public class CustomerAPI {
 			
 			Customer customer = customerService.getCustomer(email);
 			
-			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+			return ResponseEntity.ok(customer);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, environment.getProperty(e.getMessage()));
@@ -51,7 +51,7 @@ public class CustomerAPI {
 			
 			String message = "Customer added successfully with ID: "+custId;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));
@@ -66,7 +66,7 @@ public class CustomerAPI {
 
 			String message = "Customer deleted successfully with ID: "+custId;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));
@@ -82,7 +82,7 @@ public class CustomerAPI {
 			
 			String message = "Customer updated successfully with ID: "+id;
 			
-			return new ResponseEntity<String>(message, HttpStatus.OK);
+			return ResponseEntity.ok(message);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));
