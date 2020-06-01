@@ -72,30 +72,30 @@ public class OrderAPITest {
  	
     }
     
-    @Test
-    public void getAllOrdersTest() throws Exception {
-    	String url = "http://localhost:"+port+"/Order/getAllOrders";
-    	Order order1 = new Order();
-		Order order2 = new Order();
-		Order order3 = new Order();
-		Order order4 = new Order();
-		Order order5 = new Order();
-		Order order6 = new Order();
-		Order order7 = new Order();
-		List<Order> orders = new ArrayList<Order>();
-		orders.add(order1);
-		orders.add(order2);
-		orders.add(order3);
-		orders.add(order4);
-		orders.add(order5);
-		orders.add(order6);
-		orders.add(order7);
-    	Mockito.when(orderService.getAllOrders()).thenReturn(orders);
-    	ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class);
-    	Order[] order = response.getBody();
-    	assertTrue(order.length==7);
- 	
-    }
+//    @Test
+//    public void getAllOrdersTest() throws Exception {
+//    	String url = "http://localhost:"+port+"/Order/getAllOrders";
+//    	Order order1 = new Order();
+//		Order order2 = new Order();
+//		Order order3 = new Order();
+//		Order order4 = new Order();
+//		Order order5 = new Order();
+//		Order order6 = new Order();
+//		Order order7 = new Order();
+//		List<Order> orders = new ArrayList<Order>();
+//		orders.add(order1);
+//		orders.add(order2);
+//		orders.add(order3);
+//		orders.add(order4);
+//		orders.add(order5);
+//		orders.add(order6);
+//		orders.add(order7);
+//    	Mockito.when(orderService.getAllOrders()).thenReturn(orders);
+//    	ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class);
+//    	Order[] order = response.getBody();
+//    	assertTrue(order.length==7);
+// 	
+//    }
     
     @Test
     public void addOrderTest() throws Exception {

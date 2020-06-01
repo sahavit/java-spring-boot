@@ -45,33 +45,33 @@ public class OrderAPI {
 		}
 	}
 	
-//	@GetMapping("/getCustomerOrders/{custId}")
-//	ResponseEntity<List<Order>> getCustomerOrders(@PathVariable Integer custId) throws Exception{
-//		
-//		try {
-//			
-//			List<Order> orders = orderService.getCustomerOrders(custId);
-//			
-//			return ResponseEntity.ok(orders);
-//		}
-//		catch(Exception e) {
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
-//		}
-//	}
-	
-	@GetMapping("/getAllOrders")
-	ResponseEntity<List<Order>> getAllOrders() throws Exception {
+	@GetMapping("/getCustomerOrders/{custId}")
+	ResponseEntity<List<Order>> getCustomerOrders(@PathVariable Integer custId) throws Exception{
 		
 		try {
 			
-			List<Order> orders = orderService.getAllOrders();
+			List<Order> orders = orderService.getCustomerOrders(custId);
 			
 			return ResponseEntity.ok(orders);
 		}
 		catch(Exception e) {
-			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,environment.getProperty(e.getMessage()));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
 		}
 	}
+	
+//	@GetMapping("/getAllOrders")
+//	ResponseEntity<List<Order>> getAllOrders() throws Exception {
+//		
+//		try {
+//			
+//			List<Order> orders = orderService.getAllOrders();
+//			
+//			return ResponseEntity.ok(orders);
+//		}
+//		catch(Exception e) {
+//			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,environment.getProperty(e.getMessage()));
+//		}
+//	}
 	
 	@PostMapping("/addOrder")
 	ResponseEntity<String> addOrder(@RequestBody Order order) throws Exception{
