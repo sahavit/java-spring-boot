@@ -66,7 +66,7 @@ public class CustomerAPI {
 
 			String message = "Customer deleted successfully with ID: "+custId;
 			
-			return ResponseEntity.ok(message);
+			return new ResponseEntity<String>(message, HttpStatus.OK);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));
@@ -82,7 +82,7 @@ public class CustomerAPI {
 			
 			String message = "Customer updated successfully with ID: "+id;
 			
-			return ResponseEntity.ok(message);
+			return new ResponseEntity<String>(message, HttpStatus.OK);
 		}
 		catch(Exception e) {
 			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, environment.getProperty(e.getMessage()));

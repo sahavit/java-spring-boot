@@ -45,19 +45,19 @@ public class OrderAPI {
 		}
 	}
 	
-	@GetMapping("/getCustomerOrders/{custId}")
-	ResponseEntity<List<Order>> getCustomerOrders(@PathVariable Integer custId) throws Exception{
-		
-		try {
-			
-			List<Order> orders = orderService.getCustomerOrders(custId);
-			
-			return ResponseEntity.ok(orders);
-		}
-		catch(Exception e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
-		}
-	}
+//	@GetMapping("/getCustomerOrders/{custId}")
+//	ResponseEntity<List<Order>> getCustomerOrders(@PathVariable Integer custId) throws Exception{
+//		
+//		try {
+//			
+//			List<Order> orders = orderService.getCustomerOrders(custId);
+//			
+//			return ResponseEntity.ok(orders);
+//		}
+//		catch(Exception e) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
+//		}
+//	}
 	
 	@GetMapping("/getAllOrders")
 	ResponseEntity<List<Order>> getAllOrders() throws Exception {
