@@ -40,22 +40,22 @@ public class OrderAPITest {
     private OrderService orderService;
 
     
-    @Test
-    public void getOrderTest() throws Exception {
-    	String url = "http://localhost:"+port+"/Order/getOrder/{orderId}";
-    	Order order = new Order();
-    	order.setItem("Basketball");
-    	order.setOrderId(103);
-    	Customer cust = new Customer();
-    	cust.setCustomerId(501);
-    	order.setCustomer(cust);
-    	Mockito.when(orderService.getOrder(103)).thenReturn(order);
-    	Order newOrder = restTemplate.getForObject(url, Order.class, 103);
-    	assertTrue(newOrder.getOrderId().equals(103));
-    	assertTrue(newOrder.getCustomer().getCustomerId().equals(501));
-    	assertTrue(newOrder.getItem().equals("Basketball"));
- 	
-    }
+//    @Test
+//    public void getOrderTest() throws Exception {
+//    	String url = "http://localhost:"+port+"/Order/getOrder/{orderId}";
+//    	Order order = new Order();
+//    	order.setItem("Basketball");
+//    	order.setOrderId(103);
+//    	Customer cust = new Customer();
+//    	cust.setCustomerId(501);
+//    	order.setCustomer(cust);
+//    	Mockito.when(orderService.getOrder(103)).thenReturn(order);
+//    	Order newOrder = restTemplate.getForObject(url, Order.class, 103);
+//    	assertTrue(newOrder.getOrderId().equals(103));
+//    	assertTrue(newOrder.getCustomer().getCustomerId().equals(501));
+//    	assertTrue(newOrder.getItem().equals("Basketball"));
+// 	
+//    }
     
     @Test
     public void getCustomerOrdersTest() throws Exception {
