@@ -31,19 +31,19 @@ public class OrderAPI {
 	@Autowired
 	private Environment environment;
 	
-//	@GetMapping("/getOrder/{orderId}")
-//	ResponseEntity<Order> getOrder(@PathVariable Integer orderId) throws Exception{
-//		
-//		try {
-//			
-//			Order order = orderService.getOrder(orderId);
-//			
-//			return ResponseEntity.ok(order);
-//		}
-//		catch(Exception e) {
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
-//		}
-//	}
+	@GetMapping("/getOrder/{orderId}")
+	ResponseEntity<Order> getOrder(@PathVariable Integer orderId) throws Exception{
+		
+		try {
+			
+			Order order = orderService.getOrder(orderId);
+			
+			return ResponseEntity.ok(order);
+		}
+		catch(Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,environment.getProperty(e.getMessage()));
+		}
+	}
 	
 	@GetMapping("/getCustomerOrders/{custId}")
 	ResponseEntity<List<Order>> getCustomerOrders(@PathVariable Integer custId) throws Exception{
