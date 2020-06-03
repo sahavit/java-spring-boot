@@ -59,19 +59,19 @@ public class OrderAPI {
 		}
 	}
 	
-//	@GetMapping("/getAllOrders")
-//	ResponseEntity<List<Order>> getAllOrders() throws Exception {
-//		
-//		try {
-//			
-//			List<Order> orders = orderService.getAllOrders();
-//			
-//			return ResponseEntity.ok(orders);
-//		}
-//		catch(Exception e) {
-//			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,environment.getProperty(e.getMessage()));
-//		}
-//	}
+	@GetMapping("/getAllOrders")
+	ResponseEntity<List<Order>> getAllOrders() throws Exception {
+		
+		try {
+			
+			List<Order> orders = orderService.getAllOrders();
+			
+			return ResponseEntity.ok(orders);
+		}
+		catch(Exception e) {
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,environment.getProperty(e.getMessage()));
+		}
+	}
 	
 	@PostMapping("/addOrder")
 	ResponseEntity<String> addOrder(@RequestBody Order order) throws Exception{
