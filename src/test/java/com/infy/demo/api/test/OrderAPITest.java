@@ -57,20 +57,20 @@ public class OrderAPITest {
  	
     }
     
-    @Test
-    public void getCustomerOrdersTest() throws Exception {
-    	String url = "http://localhost:"+port+"/Order/getCustomerOrders/{custId}";
-    	Order order1 = new Order();
-		Order order2 = new Order();
-		List<Order> orders = new ArrayList<>();
-		orders.add(order1);
-		orders.add(order2);
-    	Mockito.when(orderService.getCustomerOrders(502)).thenReturn(orders);
-    	ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class, 502);
-    	Order[] order = response.getBody();
-    	assertTrue(order.length==2);
- 	
-    }
+//    @Test
+//    public void getCustomerOrdersTest() throws Exception {
+//    	String url = "http://localhost:"+port+"/Order/getCustomerOrders/{custId}";
+//    	Order order1 = new Order();
+//		Order order2 = new Order();
+//		List<Order> orders = new ArrayList<>();
+//		orders.add(order1);
+//		orders.add(order2);
+//    	Mockito.when(orderService.getCustomerOrders(502)).thenReturn(orders);
+//    	ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class, 502);
+//    	Order[] order = response.getBody();
+//    	assertTrue(order.length==2);
+// 	
+//    }
     
     @Test
     public void getAllOrdersTest() throws Exception {
